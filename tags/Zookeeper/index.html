@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hackjan</title>
+  <title>Tag: Zookeeper | hackjan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="hackjan">
-<meta property="og:url" content="http://ahmatjan.github.io/index.html">
+<meta property="og:url" content="http://ahmatjan.github.io/tags/Zookeeper/index.html">
 <meta property="og:site_name" content="hackjan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hackjan">
@@ -24,9 +24,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -38,10 +35,10 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
+          isHome: false,
           isPost: false,
           isArchive: false,
-          isTag: false,
+          isTag: true,
           isCategory: false,
           open_in_new: false
       }
@@ -213,161 +210,56 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Zookeeper__Unauthorized_access" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/06/02/Zookeeper__Unauthorized_access/" class="article-date">
-      <time datetime="2017-06-02T08:25:32.324Z" itemprop="datePublished">2017-06-02</time>
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2017/06/02/Zookeeper__Unauthorized_access/" class="archive-article-date">
+      <time datetime="2017-06-02T08:25:32.324Z" itemprop="datePublished">06-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+        </div>
+         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/Zookeeper__Unauthorized_access/">Zookeeper未授权访问</a>
+      <a class="archive-article-title" href="/2017/06/02/Zookeeper__Unauthorized_access/">Zookeeper未授权访问</a>
     </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <hr>
-<h1 id="Zookeeper未授权访问"><a href="#Zookeeper未授权访问" class="headerlink" title="Zookeeper未授权访问"></a>Zookeeper未授权访问</h1><p>Zookeeper未授权访问笔记</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="http://www.cnblogs.com/sevck/p/5225634.html" target="_blank" rel="external">Zookeeper未授权访问-博客园</a></li>
-<li><a href="http://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="external">快速上手-官方文档</a></li>
-<li><a href="http://cn.python-requests.org/zh_CN/latest/user/advanced.html#advanced" target="_blank" rel="external">高级用法-官方文档</a></li>
-</ul>
-<h3 id="漏洞名称："><a href="#漏洞名称：" class="headerlink" title="漏洞名称："></a>漏洞名称：</h3><p>zookeeper未授权访问</p>
-<h3 id="漏洞影响版本："><a href="#漏洞影响版本：" class="headerlink" title="漏洞影响版本："></a>漏洞影响版本：</h3><p>zookeeper</p>
-<h3 id="漏洞细节："><a href="#漏洞细节：" class="headerlink" title="漏洞细节："></a>漏洞细节：</h3><p>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。b它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
-<p>ZooKeeper默认开启在2181端口，在未进行任何访问控制情况下，攻击者可通过执行envi命令获得系统大量的敏感信息，包括系统名称、Java环境。</p>
-<h2 id="Zookeeper安装："><a href="#Zookeeper安装：" class="headerlink" title="Zookeeper安装："></a>Zookeeper安装：</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$wget http://www.apache.org/dist//zookeeper/zookeeper-3.3.6/zookeeper-3.3.6.tar.gz</div><div class="line">$tar zxvf zookeeper-3.3.6.tar.gz</div><div class="line">$mv zookeeper-3.3.6 /usr/local/zookeeper-3.3.6-2181</div><div class="line">$cd /usr/local/zookeeper-3.3.6-2181</div><div class="line">$cp conf/zoo_sample.cfg conf/zoo.cfg</div><div class="line">#新建文件夹</div><div class="line">$mkdir -p /usr/local/zookeeper-3.3.6-2181/data</div><div class="line">$mkdir -p /usr/local/zookeeper-3.3.6-2181/log</div></pre></td></tr></table></figure>
-<h3 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$vim conf/zoo.cfg</div><div class="line">    #The number of milliseconds of each tick</div><div class="line">    tickTime=2000</div><div class="line">    # The number of ticks that the initial</div><div class="line">    # synchronization phase can take</div><div class="line">    initLimit=10</div><div class="line">    # The number of ticks that can pass between</div><div class="line">    # sending a request and getting an acknowledgement</div><div class="line">    syncLimit=5</div><div class="line">    # the directory where the snapshot is stored.</div><div class="line">    dataDir=/usr/local/zookeeper-3.3.6-2181/data</div><div class="line">    dataLogDir=/usr/local/zookeeper-3.3.6-2181/log</div><div class="line">    # the port at which the clients will connect</div><div class="line">    clientPort=2181</div><div class="line">    #server.A=B：C：D：其中 A 是一个数字，表示这个是第几号服务器；B 是这个服务器的 ip 地址；C 表示的是这个服务器与集群中的 Leader 服务器交换信息的端口；D 表示的是万一集群中的 #Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的 Leader，而这个端口就是用来执行选举时服务器相互通信的端口。如果是伪集群的配置方式，由于 B 都是一样，所以不同的 #Zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号。</div><div class="line">    server.1=192.168.124.214:2287:3387</div><div class="line">    server.2=192.168.124.215:2288:33883</div></pre></td></tr></table></figure>
-<h2 id="增加myid文件"><a href="#增加myid文件" class="headerlink" title="增加myid文件"></a>增加myid文件</h2><ul>
-<li>在data目录下放置myid文件：(上面zoo.cfg中的dataDir)<ul>
-<li>mkdir data</li>
-<li>vim myid</li>
-<li>myid指明自己的id，对应上面zoo.cfg中server.后的数字，第一台的内容为1，第二台的内容为2，内容如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 启动</div><div class="line">```linux</div><div class="line">$./bin/zkServer.sh start</div><div class="line"># Server启动之后, 就可以启动client连接server了, 执行脚本:</div><div class="line">$./bin/zkCli.sh -server ip:2181</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#./bin/zkServer.sh stop</div></pre></td></tr></table></figure>
-<h1 id="漏洞演示："><a href="#漏洞演示：" class="headerlink" title="漏洞演示："></a>漏洞演示：</h1><ul>
-<li>执行以下命令即可远程获取该服务器的环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo envi | nc ip port</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="linux安装nc"><a href="#linux安装nc" class="headerlink" title="linux安装nc:"></a>linux安装nc:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install nc</div></pre></td></tr></table></figure>
-<h3 id="win-nc下载"><a href="#win-nc下载" class="headerlink" title="win-nc下载"></a>win-nc下载</h3><p><a href="/resoures/NetCat_Unix&amp;NT_Version.zip">nc-project</a></p>
-<h1 id="最后附上效果图"><a href="#最后附上效果图" class="headerlink" title="最后附上效果图"></a>最后附上效果图</h1><p><img src="/resoures/Zookeeper__Unauthorized_access.png" alt="Alt text" title="运行效果"></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/sec/">sec</a>
     </div>
 
 
-      
+          
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unauthrized-access/">Unauthrized_access</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Zookeeper/">Zookeeper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sec/">sec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
 </article>
-
-
-
-
-
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/06/02/hello-world/" class="article-date">
-      <time datetime="2017-06-02T04:33:11.997Z" itemprop="datePublished">2017-06-02</time>
-</a>
-    </div>
+    </div></section>
   
-  <div class="article-inner">
+
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/hello-world/">Hello World</a>
-    </h1>
-  
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
     <div class="outer">
@@ -432,6 +324,17 @@
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
